@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\itstep\\3 \u0421\u0435\u043C\u0435\u0441\u0442\u0440\\SPR521\\C#\\Delegates\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8059BECF-11A7-481A-ABC4-F5F4C89DA15E}|Delegates\\Delegates.csproj|c:\\itstep\\3 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\spr521\\c#\\delegates\\delegates\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8059BECF-11A7-481A-ABC4-F5F4C89DA15E}|Delegates\\Delegates.csproj|solutionrelative:delegates\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8059BECF-11A7-481A-ABC4-F5F4C89DA15E}|Delegates\\Delegates.csproj|c:\\itstep\\3 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\spr521\\c#\\delegates\\delegates\\arrayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8059BECF-11A7-481A-ABC4-F5F4C89DA15E}|Delegates\\Delegates.csproj|solutionrelative:delegates\\arrayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8059BECF-11A7-481A-ABC4-F5F4C89DA15E}|Delegates\\Delegates.csproj|c:\\itstep\\3 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\spr521\\c#\\delegates\\delegates\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8059BECF-11A7-481A-ABC4-F5F4C89DA15E}|Delegates\\Delegates.csproj|solutionrelative:delegates\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8059BECF-11A7-481A-ABC4-F5F4C89DA15E}|Delegates\\Delegates.csproj|c:\\itstep\\3 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\spr521\\c#\\delegates\\delegates\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8059BECF-11A7-481A-ABC4-F5F4C89DA15E}|Delegates\\Delegates.csproj|solutionrelative:delegates\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\itstep\\3 \u0421\u0435\u043C\u0435\u0441\u0442\u0440\\SPR521\\C#\\Delegates\\Delegates\\UserService.cs",
+              "RelativeDocumentMoniker": "Delegates\\UserService.cs",
+              "ToolTip": "C:\\itstep\\3 \u0421\u0435\u043C\u0435\u0441\u0442\u0440\\SPR521\\C#\\Delegates\\Delegates\\UserService.cs",
+              "RelativeToolTip": "Delegates\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T06:55:44.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\itstep\\3 \u0421\u0435\u043C\u0435\u0441\u0442\u0440\\SPR521\\C#\\Delegates\\Delegates\\User.cs",
+              "RelativeDocumentMoniker": "Delegates\\User.cs",
+              "ToolTip": "C:\\itstep\\3 \u0421\u0435\u043C\u0435\u0441\u0442\u0440\\SPR521\\C#\\Delegates\\Delegates\\User.cs",
+              "RelativeToolTip": "Delegates\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T06:54:45.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ArrayService.cs",
+              "DocumentMoniker": "C:\\itstep\\3 \u0421\u0435\u043C\u0435\u0441\u0442\u0440\\SPR521\\C#\\Delegates\\Delegates\\ArrayService.cs",
+              "RelativeDocumentMoniker": "Delegates\\ArrayService.cs",
+              "ToolTip": "C:\\itstep\\3 \u0421\u0435\u043C\u0435\u0441\u0442\u0440\\SPR521\\C#\\Delegates\\Delegates\\ArrayService.cs",
+              "RelativeToolTip": "Delegates\\ArrayService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T06:48:00.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\itstep\\3 \u0421\u0435\u043C\u0435\u0441\u0442\u0440\\SPR521\\C#\\Delegates\\Delegates\\Program.cs",
+              "RelativeDocumentMoniker": "Delegates\\Program.cs",
+              "ToolTip": "C:\\itstep\\3 \u0421\u0435\u043C\u0435\u0441\u0442\u0440\\SPR521\\C#\\Delegates\\Delegates\\Program.cs*",
+              "RelativeToolTip": "Delegates\\Program.cs*",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAqwGgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T06:10:08.601Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
