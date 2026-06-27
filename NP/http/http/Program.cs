@@ -71,20 +71,33 @@ namespace http
             // await Currency();
 
 
-            string apiKey = "";
-            string url = $"https://api.openweathermap.org/data/2.5/weather?appid={apiKey}&q=rivne&units=metric";
+            //string apiKey = "";
+            //string url = $"https://api.openweathermap.org/data/2.5/weather?appid={apiKey}&q=rivne&units=metric";
+            //HttpClient httpClient = new HttpClient();
+            //var model = await httpClient.GetFromJsonAsync<WeatherModel>(url);
+
+            //if(model != null)
+            //{
+            //    Console.WriteLine(model.main.temp);
+            //    var sunrise = new DateTime(1970, 1, 1) + TimeSpan.FromSeconds(model.sys.sunrise + 3600 * 3);
+            //    var sunset = new DateTime(1970, 1, 1) + TimeSpan.FromSeconds(model.sys.sunset + 3600 * 3);
+
+            //    Console.WriteLine(sunrise.ToString());
+            //    Console.WriteLine(sunset.ToString());
+            //}
+
+
+
+            // Випадкове фото котика
+            string url = "https://cataas.com/cat";
             HttpClient httpClient = new HttpClient();
-            var model = await httpClient.GetFromJsonAsync<WeatherModel>(url);
+            var response = await httpClient.GetAsync(url);
+            var type = response.Content.Headers.ContentType;
+            string imageType = type.ToString().Split("/")[1];
+            string imageName = Guid.NewGuid().ToString() + "." + imageType;
 
-            if(model != null)
-            {
-                Console.WriteLine(model.main.temp);
-                var sunrise = new DateTime(1970, 1, 1) + TimeSpan.FromSeconds(model.sys.sunrise + 3600 * 3);
-                var sunset = new DateTime(1970, 1, 1) + TimeSpan.FromSeconds(model.sys.sunset + 3600 * 3);
-
-                Console.WriteLine(sunrise.ToString());
-                Console.WriteLine(sunset.ToString());
-            }
+            var bytes = await response.Content.ReadAsByteArrayAsync();
+            await File.WriteAllBytesAsync(imageName, bytes);
         }
     }
 }
