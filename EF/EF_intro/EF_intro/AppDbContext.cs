@@ -7,6 +7,7 @@ namespace EF_intro
     {
         // Таблиці
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         // Налашутвання підключення
         // Метод переписує батьківський
@@ -17,6 +18,35 @@ namespace EF_intro
             string connectionString = "Server=localhost;Database=SPR521_intro;Trusted_Connection=True;TrustServerCertificate=True;";
 
             optionsBuilder.UseSqlServer(connectionString);
+        }
+
+        // Налаштування моделей
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            // Product
+            builder.Entity<Product>(e =>
+            {
+                // Primary key
+                e.HasKey(p => p.Id);
+
+                // Налаштування Name
+                e.Property(p => p.Name)
+                .HasMaxLength(100)
+                .IsRequired();
+
+                // Налаштування Price
+                e.Property(p => p.Price)
+                .HasColumnType("money");
+
+                // Налаштування Description
+                e.Property(p => p.Description)
+                .HasColumnType("ntext");
+
+                // Налаштування CreatedDate
+                e.Property(p => p.CreatedDate);
+            });
         }
     }
 }
