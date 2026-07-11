@@ -1,4 +1,6 @@
-﻿namespace EF_intro
+﻿using EF_intro.Models;
+
+namespace EF_intro
 {
     internal class Program
     {
