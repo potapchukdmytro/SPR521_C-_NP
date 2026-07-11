@@ -1,5 +1,6 @@
 ﻿using EF_intro.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EF_intro
 {
@@ -18,6 +19,7 @@ namespace EF_intro
             string connectionString = "Server=localhost;Database=SPR521_intro;Trusted_Connection=True;TrustServerCertificate=True;";
 
             optionsBuilder.UseSqlServer(connectionString);
+                //.LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information);
         }
 
         // Налаштування моделей
