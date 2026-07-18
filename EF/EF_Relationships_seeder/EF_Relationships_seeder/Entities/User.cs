@@ -12,9 +12,9 @@
         public Role? Role { get; set; } // Navigation property
 
         // Passport one
-        public Passport? Passport { get; set; }
+        public Passport? Passport { get; set; } // Navigation property
 
         // ProgramLanguage many
-        public List<ProgramLanguage> ProgramLanguages { get; set; } = [];
+        public List<ProgramLanguage> ProgramLanguages { get; set; } = []; // Navigation property
     }
 }

@@ -1,5 +1,6 @@
 ﻿using EF_Relationships_seeder.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EF_Relationships_seeder
 {
@@ -15,7 +16,9 @@ namespace EF_Relationships_seeder
             base.OnConfiguring(optionsBuilder);
 
             string connectionString = "Server=localhost;Database=SPR521_Relationships;Trusted_Connection=True;TrustServerCertificate=True;";
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder
+                .UseSqlServer(connectionString).
+                LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information);
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
