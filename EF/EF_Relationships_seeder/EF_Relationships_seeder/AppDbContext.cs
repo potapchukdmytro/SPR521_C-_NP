@@ -92,6 +92,16 @@ namespace EF_Relationships_seeder
                 .HasMany(u => u.ProgramLanguages)
                 .WithMany(pl => pl.Users)
                 .UsingEntity("UserProgramLanguages"); // Вказуємо назву проміжної таблиці
+
+
+
+            // Seeder - потрібно робити міграцію
+            //builder.Entity<Role>()
+            //    .HasData([
+            //        new Role { Id = 1, Name = "user" },
+            //        new Role { Id = 2, Name = "admin" },
+            //        new Role { Id = 3, Name = "manager" }
+            //        ]);
         }
     }
 }
