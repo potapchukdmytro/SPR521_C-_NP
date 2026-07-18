@@ -5,5 +5,8 @@
         public int Id { get; set; }
         public required string Name { get; set; }
         public int Year { get; set; }
+
+        // User many
+        public List<User> Users { get; set; } = [];
     }
 }

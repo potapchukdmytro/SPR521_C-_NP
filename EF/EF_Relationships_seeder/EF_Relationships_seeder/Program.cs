@@ -25,15 +25,15 @@ namespace EF_Relationships_seeder
             //context.Users.Add(user);
             //context.SaveChanges();
 
-            Passport passport = new Passport
-            {
-                Number = "1348921741US",
-                ReleaseDate = new DateTime(1992, 5, 10),
-                UserId = 1
-            };
+            //Passport passport = new Passport
+            //{
+            //    Number = "1348921741US",
+            //    ReleaseDate = new DateTime(1992, 5, 10),
+            //    UserId = 1
+            //};
 
-            context.Passports.Add(passport);
-            context.SaveChanges();
+            //context.Passports.Add(passport);
+            //context.SaveChanges();
         }
     }
 }

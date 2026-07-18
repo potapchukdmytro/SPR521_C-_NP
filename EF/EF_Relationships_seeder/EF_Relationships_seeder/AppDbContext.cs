@@ -8,7 +8,7 @@ namespace EF_Relationships_seeder
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Passport> Passports { get; set; }
-        //public DbSet<ProgramLanguage> ProgramLanguages { get; set; }
+        public DbSet<ProgramLanguage> ProgramLanguages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,14 +37,14 @@ namespace EF_Relationships_seeder
             });
 
             // ProgramLanguage
-            //builder.Entity<ProgramLanguage>(e =>
-            //{
-            //    e.HasKey(pl => pl.Id);
+            builder.Entity<ProgramLanguage>(e =>
+            {
+                e.HasKey(pl => pl.Id);
 
-            //    e.Property(pl => pl.Name)
-            //    .HasMaxLength(100)
-            //    .IsRequired();
-            //});
+                e.Property(pl => pl.Name)
+                .HasMaxLength(100)
+                .IsRequired();
+            });
 
             // Role
             builder.Entity<Role>(e =>
@@ -86,6 +86,12 @@ namespace EF_Relationships_seeder
                 .HasForeignKey<Passport>(p => p.UserId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade); // Cascade якщо видалити User то автоматично видалиться його Passport
+
+            // User <-> ProgramLanguage - many to many
+            builder.Entity<User>()
+                .HasMany(u => u.ProgramLanguages)
+                .WithMany(pl => pl.Users)
+                .UsingEntity("UserProgramLanguages"); // Вказуємо назву проміжної таблиці
         }
     }
 }

@@ -13,5 +13,8 @@
 
         // Passport one
         public Passport? Passport { get; set; }
+
+        // ProgramLanguage many
+        public List<ProgramLanguage> ProgramLanguages { get; set; } = [];
     }
 }
