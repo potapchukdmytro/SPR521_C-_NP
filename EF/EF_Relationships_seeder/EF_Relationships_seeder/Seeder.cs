@@ -1,6 +1,6 @@
 ﻿using EF_Relationships_seeder.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Net;
+using System.Text.Json;
 
 namespace EF_Relationships_seeder
 {
@@ -10,26 +10,50 @@ namespace EF_Relationships_seeder
         {
             // Auto migrations -> update-database
             context.Database.Migrate();
+            string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "jsonData");
 
 
             // Role
             if (!context.Roles.Any())
             {
-                Role[] roles = new Role[]
-                {
-                new Role { Name = "user" },
-                new Role { Name = "admin" },
-                new Role { Name = "manager" }
-                };
+                var jsonPath = Path.Combine(dirPath, "roles.json");
 
-                context.Roles.AddRange(roles);
-                context.SaveChanges();
+                var json = File.ReadAllText(jsonPath);
+
+                var roles = JsonSerializer.Deserialize<List<Role>>(json);
+                if (roles != null)
+                {
+                    context.Roles.AddRange(roles);
+                    context.SaveChanges();
+                }
             }
 
             // User and Pasports
             if (!context.Users.Any())
             {
                 var roles = context.Roles.ToList();
+
+                //var jsonPath = Path.Combine(dirPath, "users.json");
+
+                //var json = File.ReadAllText(jsonPath);
+
+                //var users = JsonSerializer.Deserialize<List<User>>(json);
+                //if (users != null)
+                //{
+                //    for (int i = 0; i < users.Count; i++)
+                //    {
+                //        if(i == 0)
+                //        {
+                //            users[0].Role = roles[0];
+                //        }
+                //        else
+                //        {
+                //            users[i].Role = roles[1];
+                //        }
+                //    }
+                //    context.Users.AddRange(users);
+                //    context.SaveChanges();
+                //}
 
                 var users = new List<User>
                 {
@@ -127,7 +151,7 @@ namespace EF_Relationships_seeder
             }
 
             // ProgramLanguages
-            if(!context.ProgramLanguages.Any())
+            if (!context.ProgramLanguages.Any())
             {
                 var users = context.Users.ToList();
 
