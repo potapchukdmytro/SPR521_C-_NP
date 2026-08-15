@@ -16,11 +16,18 @@ namespace EF_Relationships_seeder
             // Role
             if (!context.Roles.Any())
             {
-                var jsonPath = Path.Combine(dirPath, "roles.json");
+                //var jsonPath = Path.Combine(dirPath, "roles.json");
 
-                var json = File.ReadAllText(jsonPath);
+                //var json = File.ReadAllText(jsonPath);
 
-                var roles = JsonSerializer.Deserialize<List<Role>>(json);
+                //var roles = JsonSerializer.Deserialize<List<Role>>(json);
+                Role[] roles = new Role[]
+                {
+                    new Role{ Name = "admin" },
+                    new Role{ Name = "user" },
+                    new Role{ Name = "manager" }
+                };
+
                 if (roles != null)
                 {
                     context.Roles.AddRange(roles);

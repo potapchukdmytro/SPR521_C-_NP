@@ -1,4 +1,5 @@
 ﻿using EF_Relationships_seeder.Entities;
+using EF_tracking_data_loading;
 using Microsoft.EntityFrameworkCore;
 
 namespace EF_Relationships_seeder
@@ -11,30 +12,68 @@ namespace EF_Relationships_seeder
 
             Seeder.Seed(context);
 
-            // Read data
-
-            // Include - робить підзапит в іншу таблицю для отримання даних. Те саме що JOIN на SQL
-            Console.WriteLine("\nRead data\n");
-            //var user = context.Users.Include(u => u.Role).First();
-
-            //if(user.Role != null)
+            //Role? role = context.Roles.FirstOrDefault(r => r.Name == "writer");
+            //if (role != null)
             //{
-            //    Console.WriteLine(user.Role.Name);
+            //    // Переглянути state entity
+            //    Console.WriteLine(context.Entry(role).State);
+            //    role.Name = "manager";
+            //    Console.WriteLine(context.Entry(role).State);
+            //    context.SaveChanges();
             //}
 
-            // Отримання всіх даних для User
-            //var users = context.Users
-            //    .Include(u => u.Role)
-            //    .Include(u => u.Passport)
-            //    .Include(u => u.ProgramLanguages)
-            //    .ToList();
+
+            // Стани
+            // added - слідкування. Запит insert
+            // modified - слідкування. Запит update
+            // deleted - слідкування. Запит delete
+            // unchanged - слідкування. Запиту не буде
+            // detached - не слідкує
+
+
+            //Role roleUpdated = new Role
+            //{
+            //    Id = 3,
+            //    Name = "manager"
+            //};
+            //Console.WriteLine(context.Entry(roleUpdated).State);
+            //context.Entry(roleUpdated).State = EntityState.Modified;
+            //context.Roles.Update(roleUpdated);
+            //Role newRole = new Role
+            //{
+            //    Name = "writer"
+            //};
+            //context.Entry(newRole).State = EntityState.Added;
+
+            //context.SaveChanges();
+
+
+            // AsNoTracking
+
+            // AsNoTracking - для всіх entity вказує state detached
+            //var roles = context.Roles.AsNoTracking().ToList();
+
+            //Role? role = context.Roles.FirstOrDefault(r => r.Name == "manager");
+            //context.Entry(role).State = EntityState.Detached;
+
+            //Role? role = context.Roles.AsNoTracking().FirstOrDefault(r => r.Name == "reader");
+
+            //Role reader = new Role
+            //{
+            //    Id = 3,
+            //    Name = "reader"
+            //};
+            //Console.WriteLine(context.Entry(reader).State);
+
+            //context.Update(reader);
+            //Console.WriteLine(context.Entry(reader).State);
+
+            //context.SaveChanges();
 
 
 
-            // Варіант без Include
-
-            var role = context.Roles.ToList();
-            var users = context.Users.ToList(); // Кожен юзер отримає роль тому ролі були до цього отримані
+            ProgramLangsService service = new ProgramLangsService(context);
+            service.PrintLangs();
         }
     }
 }
