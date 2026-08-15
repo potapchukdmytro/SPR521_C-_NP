@@ -9,12 +9,12 @@
 
         // Role one
         public int? RoleId { get; set; } // Foreign key. Створиться у вигляді колонки в таблиці
-        public Role? Role { get; set; } // Navigation property
+        virtual public Role? Role { get; set; } // Navigation property
 
         // Passport one
-        public Passport? Passport { get; set; } // Navigation property
+        virtual public Passport? Passport { get; set; } // Navigation property
 
         // ProgramLanguage many
-        public List<ProgramLanguage> ProgramLanguages { get; set; } = []; // Navigation property
+        virtual public List<ProgramLanguage> ProgramLanguages { get; set; } = []; // Navigation property
     }
 }

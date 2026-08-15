@@ -72,30 +72,132 @@ namespace EF_Relationships_seeder
 
 
 
+            //ProgramLangsService service = new ProgramLangsService(context);
+            //while(true)
+            //{
+            //    Console.Clear();
+            //    service.PrintLangs();
+
+            //    Console.WriteLine();
+            //    Console.WriteLine("1. Add new language");
+            //    Console.WriteLine("2. Update language");
+            //    Console.WriteLine("3. Delete language");
+            //    ConsoleKey key = Console.ReadKey(true).Key;
+
+            //    switch(key)
+            //    {
+            //        case ConsoleKey.D1:
+            //            service.AddLang();
+            //            break;
+            //        case ConsoleKey.D2:
+            //            service.UpdateLang();
+            //            break;
+            //        case ConsoleKey.D3:
+            //            service.DeleteLang();
+            //            break;
+            //    }
+            //}
+
+
+
+
+
+            Console.WriteLine("\n\nMAIN\n");
+            // Data loading
+
+
+            // Eager loading (Include)
+            // Жадібне завантаження
+
+            //var user = context.Users
+            //    .Include(u => u.Passport)
+            //    .Include(u => u.ProgramLanguages)
+            //    .FirstOrDefault(u => u.Id == 1);
+            //if(user != null)
+            //{
+            //    Console.WriteLine(user.Passport.Number);
+
+            //    foreach (var pl in user.ProgramLanguages)
+            //    {
+            //        Console.WriteLine(pl.Name);
+            //    }
+            //}
+
+
+            // ThenInclude
+            //var language = context.ProgramLanguages
+            //    .Include(p => p.Users)
+            //    .ThenInclude(u => u.Passport)
+            //    .First();
+
+            //foreach (var user in language.Users)
+            //{
+            //    Console.WriteLine(user.Passport.Number);
+            //}
+
+
+
+
+            // Explicit loading
+            // Явне завантаження
+
+            //var user = context.Users.First();
+
+            //context.Entry(user).Reference(u => u.Passport).Load();
+
+            //Console.WriteLine(user.Passport.Number);
+
+            //UserService service = new UserService(context);
+            //string passportNum = service.PassportNumber(5);
+            //var langs = service.GetLanguages(2);
+            //Console.WriteLine(passportNum);
+
+
+            // Lazy loading - не рекомендовано використовувати
+            // Ліниве завантаження
+            // пакет Microsoft.EntityFrameworkCore.Proxies
+            // всі navigation property мають бути virtual
+            // у DbContext OnConfiguring додати UseLazyLoadingProxies()
+
+            //var users = context.Users.ToList();
+
+            //foreach (var user in users)
+            //{
+            //    Console.WriteLine(user.Name);
+            //    foreach (var pl in user.ProgramLanguages)
+            //    {
+            //        Console.WriteLine("\t" + pl.Name);
+            //    }
+            //}
+            //Console.WriteLine(user.Passport.Number);
+
+
+
+
+            // IQueryable - відкладений запит
+            // Запит відправиться коли ми ці дані почнемо використовувати або колецію перетворимо у List або Array
+
+            //var languages = context.ProgramLanguages.AsQueryable();
+            //string request = "SELECT * FROM Languages";
+
+            //languages = languages.Where(l => l.Year >= 2000);
+            //request = "SELECT * FROM Languages WHERE Year >= 2000";
+
+            //languages = languages.OrderBy(l => l.Name);
+            //request = "SELECT * FROM Languages WHERE Year >= 2000 ORDER BY Name";
+
+            //foreach (var l in languages) // send request
+            //{
+            //    Console.WriteLine(l.Name);
+            //}
+
+
             ProgramLangsService service = new ProgramLangsService(context);
-            while(true)
+            var langs = service.GetAll(l => l.Year < 2000, true);
+
+            foreach (var lang in langs)
             {
-                Console.Clear();
-                service.PrintLangs();
-
-                Console.WriteLine();
-                Console.WriteLine("1. Add new language");
-                Console.WriteLine("2. Update language");
-                Console.WriteLine("3. Delete language");
-                ConsoleKey key = Console.ReadKey(true).Key;
-
-                switch(key)
-                {
-                    case ConsoleKey.D1:
-                        service.AddLang();
-                        break;
-                    case ConsoleKey.D2:
-                        service.UpdateLang();
-                        break;
-                    case ConsoleKey.D3:
-                        service.DeleteLang();
-                        break;
-                }
+                Console.WriteLine(lang.Name);
             }
         }
     }

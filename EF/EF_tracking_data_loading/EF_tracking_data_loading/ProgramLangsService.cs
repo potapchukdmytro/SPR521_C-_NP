@@ -1,6 +1,7 @@
 ﻿using EF_Relationships_seeder;
 using EF_Relationships_seeder.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace EF_tracking_data_loading
 {
@@ -80,6 +81,23 @@ namespace EF_tracking_data_loading
                 _context.Remove(lang);
                 _context.SaveChanges();
             }
+        }
+
+        public List<ProgramLanguage> GetAll(Expression<Func<ProgramLanguage, bool>>? pred = null, bool isSorting = false)
+        {
+            IQueryable<ProgramLanguage> languages = _context.ProgramLanguages;
+
+            if (pred != null)
+            {
+                languages = languages.Where(pred);
+            }
+
+            if(isSorting)
+            {
+                languages = languages.OrderBy(l => l.Name);
+            }
+
+            return languages.ToList();
         }
 
         public void AddLang()

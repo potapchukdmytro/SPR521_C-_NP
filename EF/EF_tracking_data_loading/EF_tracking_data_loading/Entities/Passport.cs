@@ -8,6 +8,6 @@
 
         // User one
         public int UserId { get; set; }
-        public User? User { get; set; }
+        virtual public User? User { get; set; }
     }
 }

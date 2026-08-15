@@ -6,6 +6,6 @@
         public required string Name { get; set; }
 
         // User many
-        public List<User> Users { get; set; } = []; // Navigation property
+        virtual public List<User> Users { get; set; } = []; // Navigation property
     }
 }
