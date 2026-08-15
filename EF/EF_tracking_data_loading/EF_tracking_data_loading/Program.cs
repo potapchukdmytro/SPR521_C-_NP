@@ -73,7 +73,30 @@ namespace EF_Relationships_seeder
 
 
             ProgramLangsService service = new ProgramLangsService(context);
-            service.PrintLangs();
+            while(true)
+            {
+                Console.Clear();
+                service.PrintLangs();
+
+                Console.WriteLine();
+                Console.WriteLine("1. Add new language");
+                Console.WriteLine("2. Update language");
+                Console.WriteLine("3. Delete language");
+                ConsoleKey key = Console.ReadKey(true).Key;
+
+                switch(key)
+                {
+                    case ConsoleKey.D1:
+                        service.AddLang();
+                        break;
+                    case ConsoleKey.D2:
+                        service.UpdateLang();
+                        break;
+                    case ConsoleKey.D3:
+                        service.DeleteLang();
+                        break;
+                }
+            }
         }
     }
 }

@@ -8,5 +8,10 @@
 
         // User many
         public List<User> Users { get; set; } = [];
+
+        public override string ToString()
+        {
+            return $"{Id}: {Name}, Release - {Year}";
+        }
     }
 }
